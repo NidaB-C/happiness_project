@@ -1,6 +1,6 @@
 # Global Happiness Predictor
 
-The Global Happiness Predictor is a groundbreaking project designed to assess and predict an individual's level of happiness based on globally recognized factors. Leveraging data from the World Happiness Report, this project aims to abstract country-level happiness indicators to a personal scale, offering users insights into the determinants of happiness and a unique tool for self-assessment.
+The Global Happiness Predictor is designed to assess and predict an individual's level of happiness based on globally recognized factors. Leveraging data from the World Happiness Report, this project aims to abstract country-level happiness indicators to a personal scale, offering users insights into the determinants of happiness and a unique tool for self-assessment.
 
 ## Project Scope
 
