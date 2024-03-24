@@ -17,7 +17,7 @@ This project synthesizes data from the World Happiness Report to predict happine
 
 ### Data Source
 
-The project utilizes the World Happiness Report dataset available on [Kaggle](https://www.kaggle.com/datasets/unsdsn/world-happiness), which compiles global happiness metrics across several years. This dataset forms the foundation for our analysis and model development, providing a robust framework for understanding the intricacies of happiness on a global scale.
+The project utilizes the World Happiness Report dataset available on [Kaggle](https://www.kaggle.com/datasets/carlosmorenohernndez/world-happiness-report-2015-2023), which compiles global happiness metrics across several years. This dataset forms the foundation for our analysis and model development, providing a robust framework for understanding the intricacies of happiness on a global scale.
 
 ## <a id="project-structure"></a>Project Structure
 
