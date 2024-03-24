@@ -71,7 +71,16 @@ To use the application and interact with the happiness prediction model:
 3. Open a web browser and go to `http://127.0.0.1:5000/` to interact with the application.
 
 ## <a id="model-development"></a>Model Development
-Detail the process of model selection, training, evaluation, and optimization here. Include any specific metrics (e.g., accuracy, R-squared) achieved during the development.
+### Logistic Regression Model Summary
+
+The logistic regression model was developed to predict the binary happiness indicator derived from the World Happiness Report data. The model's performance was robust, with an accuracy score of approximately 98.9%. Precision, recall, and F1-scores were consistently high for both the 'happy' (1) and 'not happy' (0) classes, signifying the model's proficient classification capabilities.
+
+#### Performance Metrics:
+- **Accuracy**: Approximately 98.9%, indicating a high overall rate of correct predictions.
+- **Precision**: High for both classes (0.98 for class 0 and 1.00 for class 1), implying a low false-positive rate.
+- **Recall**: Perfect (1.00) for class 0 and nearly perfect (0.98) for class 1, reflecting the model's effectiveness in identifying true positives.
+- **F1-Score**: Close to 1 for both classes, denoting a balanced precision-recall relationship.
+<img width="524" alt="Screenshot 2024-03-24 at 1 11 22 PM" src="https://github.com/NidaB-C/happiness_project/assets/147389952/90ae6a69-dc42-49c9-b837-2d6a24bcf357">
 
 ## <a id="collaborators"></a>Collaborators 
 
