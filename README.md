@@ -39,8 +39,6 @@ The project relies on several Python libraries, including but not limited to:
 - Pandas
 - Scikit-learn
 - Flask
-- Matplotlib
-- Jupyter
 - PySpark
 
 ## <a id="installation"></a>Installation
