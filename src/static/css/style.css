@@ -1,0 +1,49 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fdfd96; /* A light uplifting yellow */
+    color: #333333;
+    line-height: 1.6;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+h1 {
+    text-align: center;
+    color: #6b8e23; /* Olive green for positivity */
+}
+
+form {
+    background: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type='number'] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 20px;
+}
+
+input[type='submit'] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #9acd32; /* A cheerful green */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type='submit']:hover {
+    background-color: #7fbf00; /* A darker green for contrast on hover */
+}
