@@ -16,7 +16,7 @@ This project aims to analyze, understand, and predict happiness levels by explor
 
 ### Data Source
 
-The project utilizes the World Happiness Report dataset available on [Kaggle] (https://www.kaggle.com/datasets/unsdsn/world-happiness), which compiles global happiness metrics across several years. This dataset forms the foundation for our analysis and model development, providing a robust framework for understanding the intricacies of happiness on a global scale.
+The project utilizes the World Happiness Report dataset available on [Kaggle](https://www.kaggle.com/datasets/unsdsn/world-happiness), which compiles global happiness metrics across several years. This dataset forms the foundation for our analysis and model development, providing a robust framework for understanding the intricacies of happiness on a global scale.
 
 ## <a id="project-structure"></a>Project Structure
 
@@ -48,7 +48,7 @@ The project relies on several Python libraries, including but not limited to:
 To set up your environment to run the project, follow these steps:
 
 1. **Clone the Repository**:  
-   `git clone https://github.com/your-username/Global-Happiness-Predictor.git`
+   `git clone https://github.com/NidaB-C/happiness_project.git`
    
 2. **Create a Virtual Environment** (optional, but recommended):  
    `python -m venv venv`  
