@@ -5,8 +5,8 @@ import numpy as np
 app = Flask(__name__)
 
 # Load the model and scaler at startup
-model = pickle.load(open('models/random_forest.pkl', 'rb'))
-scaler = pickle.load(open('models/scaler.pkl', 'rb'))
+model = pickle.load(open('../models/random_forest.pkl', 'rb'))
+scaler = pickle.load(open('../models/scaler.pkl', 'rb'))
 
 @app.route('/', methods=['GET'])
 def home():
