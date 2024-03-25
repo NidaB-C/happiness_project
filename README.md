@@ -120,12 +120,12 @@ The Decision Tree model was meticulously crafted and assessed, yielding an exemp
 - **F1-Score**: Obtained a score of 1.00 for each class, suggesting an optimal balance between precision and recall.
 - **Support**: The support numbers indicate an evenly distributed number of observations across both classes in the test data.
 
+<img width="536" alt="Screenshot 2024-03-25 at 7 44 22 PM" src="https://github.com/NidaB-C/happiness_project/assets/147389952/288dd0f7-df2e-4f59-aa41-836d573545af">
 The confusion matrix solidifies the exemplary metrics, showing a flawless classification by the model:
 
 - Total correct classifications for "not happy": 131
 - Total correct classifications for "happy": 143
 - Zero instances of false negatives and false positives.
-<img width="536" alt="Screenshot 2024-03-25 at 7 44 22 PM" src="https://github.com/NidaB-C/happiness_project/assets/147389952/288dd0f7-df2e-4f59-aa41-836d573545af">
 
 ### Interpretation and Strategic Enhancements
 
