@@ -28,5 +28,5 @@ rf_model = RandomForestClassifier(random_state=42)
 rf_model.fit(X_train, y_train)
 
 # Save the Random Forest model
-with open('../random_forest_model.pkl', 'wb') as model_file:
+with open('../models/random_forest_model.pkl', 'wb') as model_file:
     pickle.dump(rf_model, model_file)
