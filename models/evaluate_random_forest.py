@@ -16,14 +16,15 @@ data_cleaned = pd.read_csv('../data/processed/cleaned_happiness_data.csv')
 features = data_cleaned.drop(['HappinessIndicator', 'Score'], axis=1)
 target = data_cleaned['HappinessIndicator']
 
-# Scale the features
-features_scaled = scaler.transform(features)
+# Split the data 
+X_train, X_test, y_train, y_test = train_test_split(features, target, random_state=78)
 
-# Split the data (make sure to use the same random_state as when you trained the model)
-X_train, X_test, y_train, y_test = train_test_split(features_scaled, target, test_size=0.2, random_state=42)
+# Scale the features AFTER splitting (important change)
+X_train_scaled = scaler.transform(X_train)
+X_test_scaled = scaler.transform(X_test)
 
-# Making predictions using the test data
-rf_predictions = rf_model.predict(X_test)
+# Making predictions using the SCALED test data
+rf_predictions = rf_model.predict(X_test_scaled)
 
 # Calculating the confusion matrix and accuracy score
 rf_cm = confusion_matrix(y_test, rf_predictions)
@@ -39,7 +40,7 @@ print(f"Accuracy Score : {acc_score}")
 print("Classification Report")
 print(classification_report(y_test, rf_predictions))
 
-# Generate and display the confusion matrix
+# Generate and display the confusion matrix using seaborn
 sns.heatmap(rf_cm_df, annot=True, fmt='d', cmap='Blues')
 plt.xlabel('Predicted')
 plt.ylabel('True')
