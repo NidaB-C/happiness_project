@@ -2,7 +2,7 @@ from sqlalchemy import create_engine, MetaData, Table, Column, Float, Integer
 import pandas as pd
 
 # Load cleaned dataset from csv
-cleaned_data = pd.read_csv('data/processed/cleaned_happiness_data.csv')
+cleaned_data = pd.read_csv('../data/processed/cleaned_happiness_data.csv')
 
 # Define the schema
 metadata = MetaData()

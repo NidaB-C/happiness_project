@@ -2,7 +2,7 @@ from flask import Flask, request, render_template
 from sqlalchemy import create_engine
 import pickle
 import numpy as np
-from data import load_to_sql
+import load_to_sql
 
 app = Flask(__name__)
 
@@ -11,7 +11,7 @@ model = pickle.load(open('../models/random_forest_model.pkl', 'rb'))
 scaler = pickle.load(open('../models/scaler.pkl', 'rb'))
 
 # Load data into SQLite database
-load_to_sql.load_data()
+load_to_sql.cleaned_data
 
 # Create sqlalchemy engine
 engine = create_engine('sqlite:///happiness_data.sqlite')
