@@ -5,7 +5,7 @@ import numpy as np
 app = Flask(__name__)
 
 # Load the model and scaler at startup
-model = pickle.load(open('../models/random_forest.pkl', 'rb'))
+model = pickle.load(open('../models/random_forest_model.pkl', 'rb'))
 scaler = pickle.load(open('../models/scaler.pkl', 'rb'))
 
 @app.route('/', methods=['GET'])
@@ -17,17 +17,17 @@ def home():
 def predict():
     # Capture data from the form
     try:
-        gdp = float(request.form['gdp'])
-        social_support = float(request.form['social'])
-        life_expectancy = float(request.form['health'])
-        freedom = float(request.form['freedom'])
-        generosity = float(request.form['generosity'])
-        corruption_perception = float(request.form['corruption'])
-        dystopia_residual = float(request.form['dystopia'])
+        GDPperCapita = float(request.form['gdp'])
+        Family = float(request.form['social'])
+        LifeExpectancy = float(request.form['health'])
+        Freedom = float(request.form['freedom'])
+        NoCorruption = float(request.form['corruption'])
+        Generosity = float(request.form['generosity'])
+        DystopisResidual = float(request.form['dystopia'])
         
         # Create a feature array for prediction
-        features = np.array([[gdp, social_support, life_expectancy, freedom,
-                              generosity, corruption_perception, dystopia_residual]])
+        features = np.array([[GDPperCapita, Family, LifeExpectancy, Freedom,
+                              NoCorruption, Generosity, DystopisResidual]])
                               
         # Scale the feature array
         features_scaled = scaler.transform(features)

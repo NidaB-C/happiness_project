@@ -9,7 +9,7 @@ import pickle
 data_cleaned = pd.read_csv('../data/processed/cleaned_happiness_data.csv')
 
 # Define features and target
-features = data_cleaned.drop(['HappinessIndicator'], axis=1)
+features = data_cleaned.drop(['HappinessIndicator', 'Score'], axis=1)
 target = data_cleaned['HappinessIndicator']
 
 # Scale the features
