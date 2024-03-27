@@ -2,7 +2,7 @@ from flask import Flask, request, render_template
 from sqlalchemy import create_engine
 import pickle
 import numpy as np
-from data import load_to_sql
+import load_to_sql
 
 app = Flask(__name__)
 
@@ -11,7 +11,7 @@ model = pickle.load(open('../models/random_forest_model.pkl', 'rb'))
 scaler = pickle.load(open('../models/scaler.pkl', 'rb'))
 
 # Load data into SQLite database
-load_to_sql.load_data()
+load_to_sql.cleaned_data
 
 # Create sqlalchemy engine
 engine = create_engine('sqlite:///happiness_data.sqlite')
@@ -24,14 +24,14 @@ def home():
 @app.route('/predict', methods=['POST'])
 def predict():
     # Capture data from the form
-    try:
-        GDPperCapita = float(request.form['gdp'])
-        Family = float(request.form['social'])
-        LifeExpectancy = float(request.form['health'])
-        Freedom = float(request.form['freedom'])
-        NoCorruption = float(request.form['corruption'])
-        Generosity = float(request.form['generosity'])
-        DystopisResidual = float(request.form['dystopia'])
+     try:
+        GDPperCapita = float(int(request.form['gdp'])/5)
+        Family = float(int(request.form['social'])/5)
+        LifeExpectancy = float(int(request.form['health'])/5)
+        Freedom = float(int(request.form['freedom'])/10)
+        NoCorruption = float(int(request.form['corruption'])/10)
+        Generosity = float(int(request.form['generosity'])/10)
+        DystopisResidual = float(int(request.form['dystopia'])/10)
         
         # Create a feature array for prediction
         features = np.array([[GDPperCapita, Family, LifeExpectancy, Freedom,
@@ -46,12 +46,12 @@ def predict():
         # Interpret the prediction
         prediction_text = 'Happy' if prediction[0] == 1 else 'Not Happy'
         
-    except ValueError as e:
+     except ValueError as e:
         # Handle the error if the input is not a valid float
-        prediction_text = f"Invalid input detected. Please enter valid numbers. Error: {e}"
+        prediction = f"Invalid input detected. Please enter valid numbers. Error: {e}"
 
     # Render the page with the prediction results
-    return render_template('index.html', prediction_text=f'Prediction: You are {prediction_text}')
+     return render_template('index.html', prediction_text=f'Prediction: You are {prediction_text}')
 
 if __name__ == '__main__':
     app.run(debug=True)
