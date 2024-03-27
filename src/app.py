@@ -1,12 +1,20 @@
 from flask import Flask, request, render_template
+from sqlalchemy import create_engine
 import pickle
 import numpy as np
+from data import load_to_sql
 
 app = Flask(__name__)
 
 # Load the model and scaler at startup
 model = pickle.load(open('../models/random_forest_model.pkl', 'rb'))
 scaler = pickle.load(open('../models/scaler.pkl', 'rb'))
+
+# Load data into SQLite database
+load_to_sql.load_data()
+
+# Create sqlalchemy engine
+engine = create_engine('sqlite:///happiness_data.sqlite')
 
 @app.route('/', methods=['GET'])
 def home():
