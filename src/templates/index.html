@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happiness Predictor</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <title>Feature Averages Based on Happiness Indicator</title>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
 </head>
@@ -56,7 +55,7 @@
     <div id="plot"></div>
 
  <!-- Include the plots.js script -->
-<script src="plots.js"></script>
+ <script src="{{ url_for('static', filename='js/plots.js') }}"></script>
 
 </body>
 </html>
