@@ -1,0 +1,21 @@
+<!-- result.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happiness Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ prediction_text }}</h1>
+        <div id="plot"></div>
+    </div>
+    
+    <!-- ...Include plotly and other scripts... -->
+    <script src="{{ url_for('static', filename='js/plots.js') }}"></script>
+</body>
+</html>

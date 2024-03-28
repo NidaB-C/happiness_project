@@ -51,7 +51,7 @@ def predict():
         prediction = f"Invalid input detected. Please enter valid numbers. Error: {e}"
 
     # Render the page with the prediction results
-     return render_template('index.html', prediction_text=f'Prediction: You are {prediction_text}')
+     return render_template('result.html', prediction_text=f'Prediction: You are {prediction_text}')
 
 if __name__ == '__main__':
     app.run(debug=True)
