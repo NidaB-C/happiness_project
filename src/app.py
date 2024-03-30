@@ -2,7 +2,7 @@ from flask import Flask, request, render_template
 from sqlalchemy import create_engine
 import pickle
 import numpy as np
-import load_to_sql
+import sql.load_to_sql as load_to_sql
 
 app = Flask(__name__)
 
