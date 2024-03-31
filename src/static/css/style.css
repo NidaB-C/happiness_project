@@ -16,6 +16,11 @@ h1 {
     color: #6b8e23; /* Olive green for positivity */
 }
 
+h4 {
+    text-align: center;
+    color: #3f5d00; /*Darker Olive green for positivity */
+}
+
 form {
     background: #f0f0f0;
     padding: 20px;
@@ -25,6 +30,48 @@ form {
 label {
     display: block;
     margin-bottom: 5px;
+}
+
+input[type='range'] {
+    width: 100%;
+    margin-bottom: 0px;
+    background: url('/static/images/happiness_scale.png') no-repeat center center;
+    background-size: cover;
+    -webkit-appearance: none; /* Hides the default slider styling */
+    appearance: none;
+}
+
+input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: #ffffff; /* Customize thumb color */
+    border: 2px solid #000000; /* Customize thumb border */
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.slider-labels {
+    margin-top: 0px;
+    display: flex;
+    justify-content: space-between;
+    width: 111%;
+    margin-bottom: 10px;
+}
+
+.slider-labels span {
+    flex-grow: 1;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+}
+.divider {
+    margin-top: 20px; /* Add space above the divider */
+    border: none;
+    height: 1px;
+    margin-bottom: 15px;
+    background-color: #ccc; /* Divider color */
 }
 
 input[type='number'] {
