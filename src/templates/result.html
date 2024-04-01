@@ -12,8 +12,10 @@
         <h1>{{ prediction_text }}</h1>
         <div id="plot"></div>
     </div>
-    
+    <div>
+        {{ graph|safe }}
+    </div>
     <!-- ...Include plotly and other scripts... -->
-    <script src="{{ url_for('static', filename='js/plots.js') }}"></script>
+    <!--script src="{{ url_for('static', filename='js/plots.js') }}"></script> -->
 </body>
 </html>

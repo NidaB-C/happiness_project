@@ -3,6 +3,8 @@ from sqlalchemy import create_engine
 import pickle
 import numpy as np
 import sql.load_to_sql as load_to_sql
+import plotly.graph_objs as go
+import pandas as pd
 
 app = Flask(__name__)
 
@@ -16,6 +18,9 @@ load_to_sql.cleaned_data
 # Create sqlalchemy engine
 engine = create_engine('sqlite:///../sql/happiness_data.sqlite')
 
+dataset_path = "../data/processed/cleaned_happiness_data.csv"
+df = pd.read_csv(dataset_path)
+
 @app.route('/', methods=['GET'])
 def home():
     # Render the home page with form
@@ -25,17 +30,17 @@ def home():
 def predict():
     # Capture data from the form
      try:
-        GDPperCapita = float(int(request.form['gdp'])/5)
+        GDPperCapita = float(int(request.form['gdp'])/4)
         Family = float(int(request.form['social'])/5)
-        LifeExpectancy = float(int(request.form['health'])/5)
+        LifeExpectancy = float(int(request.form['health'])/7)
         Freedom = float(int(request.form['freedom'])/10)
         NoCorruption = float(int(request.form['corruption'])/10)
         Generosity = float(int(request.form['generosity'])/10)
-        DystopisResidual = float(int(request.form['dystopia'])/10)
+        DystopiaResidual = float(int(request.form['dystopia'])/2.5)
         
         # Create a feature array for prediction
         features = np.array([[GDPperCapita, Family, LifeExpectancy, Freedom,
-                              NoCorruption, Generosity, DystopisResidual]])
+                              NoCorruption, Generosity, DystopiaResidual]])
                               
         # Scale the feature array
         features_scaled = scaler.transform(features)
@@ -49,9 +54,40 @@ def predict():
      except ValueError as e:
         # Handle the error if the input is not a valid float
         prediction = f"Invalid input detected. Please enter valid numbers. Error: {e}"
+        
+     other_scores = {}
+     for variable in ['GDPperCapita','Family','LifeExpectancy','Freedom','NoCorruption','Generosity', 'DystopiaResidual']:  # Adjust categories as needed
+        scores = df[variable].tolist()
+        other_scores[variable] = scores
+    
+     your_scores = [GDPperCapita, Family, LifeExpectancy, Freedom, NoCorruption, Generosity, DystopiaResidual]
+
+     graph = create_graph(your_scores, other_scores)
 
     # Render the page with the prediction results
-     return render_template('result.html', prediction_text=f'Prediction: You are {prediction_text}')
+     return render_template('result.html', prediction_text=f'Prediction: You are {prediction_text}', graph=graph)
+
+def create_graph(your_scores, other_scores):
+    data = []
+    line_colors = ['#264653', '#287271', '#2A9D8F', '#E9C46A', '#efb366', '#F4A261', '#EE8959', '#E76F51']
+    # Add traces for each variable
+    for i, (variable, scores) in enumerate(other_scores.items()):
+        trace = go.Box(x=scores, name=variable, fillcolor='#f9f7f3', line=dict(color=(line_colors[i % len(line_colors)])))
+        data.append(trace)
+    
+    user_trace = go.Scatter(
+            x=your_scores,
+            y=['GDPperCapita','Family','LifeExpectancy','Freedom','NoCorruption','Generosity', 'DystopiaResidual'],
+            mode='markers',
+            marker=dict(color='#dc143c'),
+            name='User_Data'
+        )
+    data.append(user_trace)
+    
+    layout = go.Layout(title='Comparison of Your Score with the Rest of the World', xaxis=dict(title='Happiness Score'), yaxis=dict(title='Variables'))
+    fig = go.Figure(data=data, layout=layout)
+    graph = fig.to_html(full_html=False)
+    return graph
 
 if __name__ == '__main__':
     app.run(debug=True)
