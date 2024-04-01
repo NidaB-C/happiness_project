@@ -14,7 +14,7 @@ scaler = pickle.load(open('../models/scaler.pkl', 'rb'))
 load_to_sql.cleaned_data
 
 # Create sqlalchemy engine
-engine = create_engine('sqlite:///happiness_data.sqlite')
+engine = create_engine('sqlite:///../sql/happiness_data.sqlite')
 
 @app.route('/', methods=['GET'])
 def home():
