@@ -9,17 +9,11 @@ import pandas as pd
 app = Flask(__name__)
 
 # Load the model and scaler at startup
-model = pickle.load(open('../models/random_forest_model.pkl', 'rb'))
-scaler = pickle.load(open('../models/scaler.pkl', 'rb'))
+model = pickle.load(open('models/random_forest_model.pkl', 'rb'))
+scaler = pickle.load(open('models/scaler.pkl', 'rb'))
 
-# Load data into SQLite database
-load_to_sql.cleaned_data
-
-# Create sqlalchemy engine
-engine = create_engine('sqlite:///../sql/happiness_data.sqlite')
-
-dataset_path = "../data/processed/cleaned_happiness_data.csv"
-df = pd.read_csv(dataset_path)
+# Load your dataset
+df = pd.read_csv('data/processed/cleaned_happiness_data.csv')  # Adjust the path to your dataset CSV file
 
 @app.route('/', methods=['GET'])
 def home():
@@ -80,7 +74,7 @@ def create_graph(your_scores, other_scores):
             y=['GDPperCapita','Family','LifeExpectancy','Freedom','NoCorruption','Generosity', 'DystopiaResidual'],
             mode='markers',
             marker=dict(color='#dc143c'),
-            name='User_Data'
+            name='Your Score'
         )
     data.append(user_trace)
     
@@ -90,4 +84,5 @@ def create_graph(your_scores, other_scores):
     return graph
 
 if __name__ == '__main__':
+    load_to_sql.load_data_to_sql()
     app.run(debug=True)
