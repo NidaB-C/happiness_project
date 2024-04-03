@@ -9,11 +9,11 @@ import pandas as pd
 app = Flask(__name__)
 
 # Load the model and scaler at startup
-model = pickle.load(open('models/random_forest_model.pkl', 'rb'))
-scaler = pickle.load(open('models/scaler.pkl', 'rb'))
+model = pickle.load(open('../models/random_forest_model.pkl', 'rb'))
+scaler = pickle.load(open('../models/scaler.pkl', 'rb'))
 
 # Load your dataset
-df = pd.read_csv('data/processed/cleaned_happiness_data.csv')  # Adjust the path to your dataset CSV file
+df = pd.read_csv('../data/processed/cleaned_happiness_data.csv') 
 
 @app.route('/', methods=['GET'])
 def home():
