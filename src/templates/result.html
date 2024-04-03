@@ -8,6 +8,9 @@
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 <body>
+    <!-- Add header image here -->
+    <img src="{{ url_for('static', filename='images/header_1.png') }}" alt="Header Image" style="width: 100%; height: auto;">
+    
     <div class="container">
         <h1>{{ prediction_text }}</h1>
         <div id="plot"></div>
