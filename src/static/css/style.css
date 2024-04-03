@@ -13,7 +13,7 @@ body {
 
 h1 {
     text-align: center;
-    color: #2A9D8F; /* Greenish-blue */
+    color: #F4A261; /* Dark orange color for labels */
 }
 
 h4 {
@@ -30,6 +30,7 @@ form {
 label {
     display: block;
     margin-bottom: 5px;
+    color: #2A9D8F; /* Greenish-blue */
 }
 
 input[type='range'] {
