@@ -26,7 +26,7 @@ The repository is organized as follows to ensure ease of navigation and collabor
 - **`data/`**: Contains all datasets used in the project.
   - `processed/`: Cleaned and processed data ready for modelling.
   - `raw/`: Original datasets.
-- **`docs/`**: Documentation related to the project.
+- **`docs/`**: Documentation related to the project including log of iterative process. 
 - **`models/`**: Machine learning models including training and evaluation scripts.
 - **`notebooks/`**: Jupyter notebooks for exploratory data analysis and model prototyping.
 - **`src/`**: Source code for the application, including Flask backend and frontend assets.
@@ -101,6 +101,36 @@ The slight discrepancy between precision and recall in predicting "not happy" vs
 
 This Logistic Regression model's performance marks a promising step towards developing a reliable tool for happiness prediction, offering a solid foundation for further refinement and comparison with other models.
 
+### Decision Tree Model Summary
+The exploration of the Decision Tree model for predicting levels of happiness provided valuable insights into its performance. Below is a summary of the key performance metrics observed:
+
+<img width="433" alt="Screenshot 2024-03-27 at 8 55 42 PM" src="https://github.com/NidaB-C/happiness_project/assets/147389952/8572f8d5-6b5a-42cc-834f-4fd50994ee2e">
+
+#### Performance Metrics:
+
+- **Accuracy Score**: The model recorded an accuracy of 90.05%, indicating a robust ability to make correct predictions across the dataset.
+
+- **Precision**: Showed a precision of 89% for predicting "not happy" and 91% for "happy," reflecting its competence in returning relevant results.
+
+- **Recall**: Demonstrated a recall of 91% for the "not happy" class and 89% for the "happy" class, showcasing the model's capacity to correctly identify nearly all relevant instances.
+
+- **F1-Score**: The F1-scores for both classes were balanced at 90%, signifying a healthy equilibrium between precision and recall, indicative of strong model performance.
+
+<img width="500" alt="Screenshot 2024-03-27 at 8 56 51 PM" src="https://github.com/NidaB-C/happiness_project/assets/147389952/a8444e87-1af8-442d-b0f6-68af9d75ca1e">
+
+#### Confusion Matrix Insights:
+
+- **True Positives (Happy)**: Effectively identified 150 individuals as happy, showcasing the model's sensitivity.
+- **True Negatives (Not Happy)**: Correctly recognized 158 individuals as not happy, highlighting the model's accuracy.
+- **False Positives**: Encountered 15 instances of incorrect predictions as happy, suggesting a slight area for improvement.
+- **False Negatives**: Reported 19 instances where individuals were mistakenly classified as not happy.
+
+### Interpretation
+
+The Decision Tree model exhibits commendable performance in classifying individuals into happiness categories, with an overall accuracy of 90.05%. Its balanced precision, recall, and F1-scores indicate a capable and reliable model. However, compared to the Logistic Regression and Random Forest models, it shows a slightly higher rate of false positives and negatives, which points towards a margin of improvement in model refinement and feature selection.
+
+The Decision Tree model, with its intuitive understanding and solid performance metrics, stands as an instrumental approach in the project's objective to predict happiness effectively. Continuous refinement and strategic enhancements promise to elevate its predictive accuracy and reliability further.
+
 ### Random Forest Model Summary
 In our examination of the Random Forest model for predicting happiness levels, the model demonstrated remarkable effectiveness, as evidenced by the collected performance metrics.
 
@@ -132,36 +162,6 @@ The Random Forest model's near-perfect precision, recall, and F1-scores across b
 A slight increase in false negatives compared to the Logistic Regression model indicates a minor challenge in classifying some "happy" instances. However, this slight margin does not significantly detract from the model’s overall impressive performance.
 
 The Random Forest model, with its exceptional accuracy and balanced metrics, stands as a powerful tool for happiness prediction, providing a solid base for further enhancement and ensuring its readiness for deployment.
-
-### Decision Tree Model Summary
-The exploration of the Decision Tree model for predicting levels of happiness provided valuable insights into its performance. Below is a summary of the key performance metrics observed:
-
-<img width="433" alt="Screenshot 2024-03-27 at 8 55 42 PM" src="https://github.com/NidaB-C/happiness_project/assets/147389952/8572f8d5-6b5a-42cc-834f-4fd50994ee2e">
-
-#### Performance Metrics:
-
-- **Accuracy Score**: The model recorded an accuracy of 90.05%, indicating a robust ability to make correct predictions across the dataset.
-
-- **Precision**: Showed a precision of 89% for predicting "not happy" and 91% for "happy," reflecting its competence in returning relevant results.
-
-- **Recall**: Demonstrated a recall of 91% for the "not happy" class and 89% for the "happy" class, showcasing the model's capacity to correctly identify nearly all relevant instances.
-
-- **F1-Score**: The F1-scores for both classes were balanced at 90%, signifying a healthy equilibrium between precision and recall, indicative of strong model performance.
-
-<img width="500" alt="Screenshot 2024-03-27 at 8 56 51 PM" src="https://github.com/NidaB-C/happiness_project/assets/147389952/a8444e87-1af8-442d-b0f6-68af9d75ca1e">
-
-#### Confusion Matrix Insights:
-
-- **True Positives (Happy)**: Effectively identified 150 individuals as happy, showcasing the model's sensitivity.
-- **True Negatives (Not Happy)**: Correctly recognized 158 individuals as not happy, highlighting the model's accuracy.
-- **False Positives**: Encountered 15 instances of incorrect predictions as happy, suggesting a slight area for improvement.
-- **False Negatives**: Reported 19 instances where individuals were mistakenly classified as not happy.
-
-### Interpretation
-
-The Decision Tree model exhibits commendable performance in classifying individuals into happiness categories, with an overall accuracy of 90.05%. Its balanced precision, recall, and F1-scores indicate a capable and reliable model. However, compared to the Logistic Regression and Random Forest models, it shows a slightly higher rate of false positives and negatives, which points towards a margin of improvement in model refinement and feature selection.
-
-The Decision Tree model, with its intuitive understanding and solid performance metrics, stands as an instrumental approach in the project's objective to predict happiness effectively. Continuous refinement and strategic enhancements promise to elevate its predictive accuracy and reliability further.
 
 ## Final Model Selection: Random Forest
 ### Model Selection Rationale
