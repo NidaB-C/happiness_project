@@ -7,6 +7,7 @@ The Global Happiness Predictor aims to leverage machine learning techniques to p
 - [Project Structure](#project-structure)
 - [Technical Stack](#dependencies)
 - [Installation](#installation)
+- [Web Application Overview](#web-application-overview)
 - [Usage](#usage)
 - [Model Development](#model-development)
 - [Collaborators](#collaborators)
@@ -35,11 +36,29 @@ The repository is organized as follows to ensure ease of navigation and collabor
 
 ## <a id="dependencies"></a>Technical Stack
 
-- **Data Analysis and Modeling:** Pandas, Scikit-learn
-- **Backend Framework:** Flask
-- **Frontend:** HTML, CSS (Bootstrap for styling), JavaScript (for dynamic content)
-- **Visualization:** Matplotlib/Plotly for generating insightful charts
-- **Database:** SQL Database 
+### Data Analysis and Modeling:
+- **Pandas:** For data manipulation and analysis.
+- **Scikit-learn:** Used for building the machine learning model.
+
+### Backend Framework:
+- **Flask:** A lightweight WSGI web application framework.
+
+### Frontend:
+- **HTML/CSS:** Basic building blocks of web app interfaces.
+- **Bootstrap:** For styling and responsive design.
+- **JavaScript:** To add interactivity to the web pages.
+
+### Visualization:
+- **Matplotlib/Plotly:** Used for creating static and interactive visualizations.
+
+### Database:
+- **SQL Database:** Utilizing SQLite for data storage.
+- **SQLAlchemy:** For ORM and database interactions.
+
+### Additional Tools:
+- **Pickle:** For loading the trained machine learning model and scaler.
+- **NumPy:** For numerical operations on data.
+- **Plotly:** For creating interactive plots that can be embedded in the frontend.
 
 ## <a id="installation"></a>Installation
 
@@ -55,6 +74,22 @@ To set up your environment to run the project, follow these steps:
    
 4. **Install Dependencies**:  
    `pip install -r requirements.txt`
+
+## <a id="web-application-overview"></a>Web Application Overview
+
+The `app.py` script is the backbone of a Flask web application designed to predict happiness scores based on the World Happiness Report data. It utilizes a machine learning model to forecast an individual's happiness category ('Happy' or 'Not Happy') using various indicators of well-being and national prosperity.
+
+### Features of the Web Application:
+
+- **Model and Scaler Loading:** At startup, the application loads a pre-trained Random Forest machine learning model and a scaler for feature normalization, ensuring that input data is in the correct format for prediction.
+
+- **Data Loading and Database Integration:** The script includes functionality to load processed data into an SQLite database, creating an engine with SQLAlchemy to interact with the database. This allows for the storage and querying of happiness data, which can be utilized for further analysis or to improve model predictions.
+
+- **Prediction Endpoint:** The `/predict` route captures user input from a web form, where users can enter values for GDP per Capita, Social Support, Healthy Life Expectancy, Freedom to Make Life Choices, Perceptions of Corruption, Generosity, and Dystopia Residual. These inputs are then scaled using the loaded scaler and fed into the Random Forest model to predict the happiness category.
+
+- **Result Visualization:** After making a prediction, the application dynamically generates a Plotly graph, comparing the user's input with the global data distribution. This visual representation provides users with a contextual understanding of their predicted happiness score relative to the world.
+
+- **User Input Validation:** The application is designed to handle invalid inputs gracefully, displaying appropriate error messages when non-numeric data is entered.
 
 ## <a id="usage"></a>Usage
 
