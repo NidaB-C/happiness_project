@@ -3,7 +3,7 @@ import pandas as pd
 
 def load_data_to_sql():
     # Load cleaned dataset from csv
-    cleaned_data = pd.read_csv('data/processed/cleaned_happiness_data.csv')
+    cleaned_data = pd.read_csv('../data/processed/cleaned_happiness_data.csv')
 
     # Define the schema
     metadata = MetaData()
