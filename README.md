@@ -1,6 +1,8 @@
-# Global Happiness Predictor
+# The Happiness Project
 
-The Global Happiness Predictor aims to leverage machine learning techniques to predict an individual's happiness level based on global happiness metrics. By abstracting data from the World Happiness Report to a personal level, this tool offers a unique perspective for self-assessment and understanding happiness determinants.
+<img width="1117" alt="Screenshot 2024-04-03 at 11 44 23 AM" src="https://github.com/NidaB-C/happiness_project/assets/147389952/fc29c862-78b8-4d8f-a5c0-555f655f7706">
+
+The Happiness Project aims to leverage machine learning techniques to predict an individual's happiness level based on global happiness metrics. By abstracting data from the World Happiness Report to a personal level, this tool offers a unique perspective for self-assessment and understanding happiness determinants.
 
 ## Table of Contents
 - [Introduction](#introduction)
