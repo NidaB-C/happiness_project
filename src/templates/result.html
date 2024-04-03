@@ -18,7 +18,8 @@
     <div>
         {{ graph|safe }}
     </div>
-    <!-- ...Include plotly and other scripts... -->
-    <!--script src="{{ url_for('static', filename='js/plots.js') }}"></script> -->
+    <img src="{{ url_for('static', filename='images/happiness_scale.png') }}" alt="Hapiness Scale" style="width: 100%; height: auto;">
+
+    <img src="{{ url_for('static', filename='images/feature_comparison_boxplot.png') }}" alt="Feature Comparison Boxplot" style="width: 100%; height: auto;">
 </body>
 </html>
