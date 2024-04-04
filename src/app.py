@@ -13,7 +13,7 @@ model = pickle.load(open('../models/random_forest_model.pkl', 'rb'))
 scaler = pickle.load(open('../models/scaler.pkl', 'rb'))
 
 # Load your dataset
-df = pd.read_csv('../data/processed/cleaned_happiness_data.csv') 
+engine = create_engine('sqlite:///happiness_data.sqlite', echo=False)
 
 @app.route('/', methods=['GET'])
 def home():
@@ -50,9 +50,11 @@ def predict():
         prediction = f"Invalid input detected. Please enter valid numbers. Error: {e}"
         
      other_scores = {}
-     for variable in ['GDPperCapita','Family','LifeExpectancy','Freedom','NoCorruption','Generosity', 'DystopiaResidual']: 
-        scores = df[variable].tolist()
-        other_scores[variable] = scores
+     with engine.connect() as connection:
+        for variable in ['GDPperCapita', 'Family', 'LifeExpectancy', 'Freedom', 'NoCorruption', 'Generosity',
+                         'DystopiaResidual']:
+            scores = connection.execute(f"SELECT {variable} FROM happiness_data").fetchall()
+            other_scores[variable] = [score[0] for score in scores]
     
      your_scores = [GDPperCapita, Family, LifeExpectancy, Freedom, NoCorruption, Generosity, DystopiaResidual]
 
