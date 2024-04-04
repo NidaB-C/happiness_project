@@ -50,7 +50,7 @@ def predict():
         prediction = f"Invalid input detected. Please enter valid numbers. Error: {e}"
         
      other_scores = {}
-     for variable in ['GDPperCapita','Family','LifeExpectancy','Freedom','NoCorruption','Generosity', 'DystopiaResidual']:  # Adjust categories as needed
+     for variable in ['GDPperCapita','Family','LifeExpectancy','Freedom','NoCorruption','Generosity', 'DystopiaResidual']: 
         scores = df[variable].tolist()
         other_scores[variable] = scores
     
